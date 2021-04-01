@@ -10,6 +10,7 @@ CREATE TABLE matelas (
     id TINYINT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(60) NOT NULL,
     dimenstions VARCHAR(11) NOT NULL,
+    prixb DECIMAL(6,2),
     prix DECIMAL(6,2)
 );
 
@@ -32,18 +33,18 @@ CREATE TABLE full_matelas (
 
 -- Insertion de données dans la table matelas
 INSERT INTO matelas
-(nom, dimenstions, prix)
+(nom, dimenstions, prixb, prix)
 VALUES
-("Matelas Tamoul", "90X190", 759.00),
-("Matelas Waldorf", "90X190", 809.00),
-("Matelas Joris", "140X190", 759.00),
-("Matelas Melon", "160X200", 1019.00),
-("Matelas Couscous", "160X190", 609.00),
-("Matelas Polipokette", "90X140", 209.00),
-("Matelas Falcon punch", "180X200", 1209.00),
-("Matelas Tea", "200X200", 406.00),
-("Matelas Mo", "200X200", 798.00),
-("Matelas Tai", "180X200", 519.00);
+("Matelas Tamoul", "90X190", 759.00, 529.00),
+("Matelas Waldorf", "90X190", 809.00, 709.00),
+("Matelas Joris", "140X190", 759.00, 529.00),
+("Matelas Melon", "160X200", 1019.00, 509.00),
+("Matelas Couscous", "160X190", 609.00, 324.12),
+("Matelas Polipokette", "90X140", 209.00, 101.00),
+("Matelas Falcon punch", "180X200", 1209.00, 1001.01),
+("Matelas Tea", "200X200", 406.00, 324.00),
+("Matelas Mo", "200X200", 798.00, 450.00),
+("Matelas Tai", "180X200", 519.00, 222.00);
 
 -- Insertion de données dans la table marques
 INSERT INTO marques
