@@ -8,17 +8,19 @@ USE literie3000;
 -- Création de la table matelas
 CREATE TABLE matelas (
     id TINYINT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(60) NOT NULL,
+    nom_matelas VARCHAR(60) NOT NULL,
     dimenstions VARCHAR(11) NOT NULL,
     prixb DECIMAL(6,2),
     prix DECIMAL(6,2),
-    img TEXT
+    img TEXT,
+    marque
 );
+lignes retiré
 
--- Création de la table marque
+(-- Création de la table marque
 CREATE TABLE marques (
     id SMALLINT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(30) NOT NULL
+    nom_marques VARCHAR(30) NOT NULL
 );
 
 -- Création de la table full_matelas
@@ -32,21 +34,6 @@ CREATE TABLE full_matelas (
 );
 
 
--- Insertion de données dans la table matelas
-INSERT INTO matelas
-(nom, dimenstions, prixb, prix)
-VALUES
-("Matelas Tamoul", "90X190", 759.00, 529.00),
-("Matelas Waldorf", "90X190", 809.00, 709.00),
-("Matelas Joris", "140X190", 759.00, 529.00),
-("Matelas Melon", "160X200", 1019.00, 509.00),
-("Matelas Couscous", "160X190", 609.00, 324.12),
-("Matelas Polipokette", "90X140", 209.00, 101.00),
-("Matelas Falcon punch", "180X200", 1209.00, 1001.01),
-("Matelas Tea", "200X200", 406.00, 324.00),
-("Matelas Mo", "200X200", 798.00, 450.00),
-("Matelas Tai", "180X200", 519.00, 222.00);
-
 -- Insertion de données dans la table marques
 INSERT INTO marques
 (nom)
@@ -58,7 +45,7 @@ VALUES
 ("MemoryLine");
 
 
--- Insertion de données dans la table full_matelas afin de "lier" des matelas à des marquess
+-- Insertion de données dans la table full_matelas afin de "lier" des matelas à des marques
 INSERT INTO full_matelas
 (matela_id, marque_id)
 VALUES
@@ -72,3 +59,35 @@ VALUES
 (8,4),
 (9,3),
 (10,5);
+
+SELECT nom_matelas AS "Nom du matelas"
+GROUP_CONCAT(marques.nom_marques)
+AS "Marque du matelas"
+FROM matelas
+INNER JOIN full_matelas
+ON matelas.id = full_matelas.matelas_id
+INNER JOIN marques
+ON full_matelas.marque_id = marques.id;
+
+
+)
+
+
+-- Insertion de données dans la table matelas
+INSERT INTO matelas
+(nom, dimenstions, prixb, prix, marque)
+VALUES
+("Matelas Tamoul", "90X190", 759.00, 529.00,"EPEDA"),
+("Matelas Waldorf", "90X190", 809.00, 709.00, "DREAMWAY"),
+("Matelas Joris", "140X190", 759.00, 529.00,"BULTEX" ),
+("Matelas Melon", "160X200", 1019.00, 509.00,"EPEDA"),
+("Matelas Couscous", "160X190", 609.00, 324.12,"DORSOLINE"),
+("Matelas Polipokette", "90X140", 209.00, 101.00,"MEMORYLINE"),
+("Matelas Falcon punch", "180X200", 1209.00, 1001.01,"MEMORYLINE"),
+("Matelas Tea", "200X200", 406.00, 324.00,"DORSOLINE"),
+("Matelas Mo", "200X200", 798.00, 450.00,"BULTEX"),
+("Matelas Tai", "180X200", 519.00, 222.00,"BULTEX");
+
+
+
+

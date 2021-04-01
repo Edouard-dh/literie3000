@@ -5,7 +5,7 @@ $dsn = "mysql:host=localhost;dbname=literie3000";
 $db = new PDO($dsn, 'root', '');
 $query = $db->query('SELECT * FROM matelas');
 $matelas = $query->fetchAll();
-// var_dump($results);
+
 require_once("tpl/header.php");
 ?>
 
@@ -16,7 +16,8 @@ require_once("tpl/header.php");
     ?>
 
         <div>
-            <h2><?= $matela["nom"] ?></h2>
+            <h2><?= $matela["nom_matelas"] ?></h2>
+            <p> Marque : <?=$matela["marque"]  ?></p>
             <img src="<?=$matela["img"]  ?>" alt="">
             <p>Dimension: <?=$matela["dimenstions"]  ?></p>
             <p>Prix d 'origine : <?=$matela["prixb"]  ?></p>
