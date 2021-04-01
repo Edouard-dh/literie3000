@@ -11,7 +11,8 @@ CREATE TABLE matelas (
     nom VARCHAR(60) NOT NULL,
     dimenstions VARCHAR(11) NOT NULL,
     prixb DECIMAL(6,2),
-    prix DECIMAL(6,2)
+    prix DECIMAL(6,2),
+    img TEXT
 );
 
 -- Création de la table marque
