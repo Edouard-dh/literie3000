@@ -1,0 +1,72 @@
+/* Création de la base*/
+CREATE DATABASE literie3000;
+
+/* Utilisation de la base*/
+
+USE literie3000;
+
+-- Création de la table matelas
+CREATE TABLE matelas (
+    id TINYINT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(60) NOT NULL,
+    dimenstions VARCHAR(11) NOT NULL,
+    prix DECIMAL(6,2)
+);
+
+-- Création de la table marque
+CREATE TABLE marques (
+    id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(30) NOT NULL
+);
+
+-- Création de la table full_matelas
+-- Attention de respecter les mêmes types que la table d'origine lorsque vous mettez en place des clés étrangères
+CREATE TABLE full_matelas (
+    matela_id TINYINT,
+    marque_id SMALLINT,
+    PRIMARY KEY (matela_id, marque_id),
+    FOREIGN KEY (matela_id) REFERENCES matelas(id),
+    FOREIGN KEY (marque_id) REFERENCES marques(id)
+);
+
+
+-- Insertion de données dans la table matelas
+INSERT INTO matelas
+(nom, dimenstions, prix)
+VALUES
+("Matelas Tamoul", "90X190", 759.00),
+("Matelas Waldorf", "90X190", 809.00),
+("Matelas Joris", "140X190", 759.00),
+("Matelas Melon", "160X200", 1019.00),
+("Matelas Couscous", "160X190", 609.00),
+("Matelas Polipokette", "90X140", 209.00),
+("Matelas Falcon punch", "180X200", 1209.00),
+("Matelas Tea", "200X200", 406.00),
+("Matelas Mo", "200X200", 798.00),
+("Matelas Tai", "180X200", 519.00);
+
+-- Insertion de données dans la table marques
+INSERT INTO marques
+(nom)
+VALUES
+("Epeda"),
+("Dreamway"),
+("Bultex"),
+("Dorsoline"),
+("MemoryLine");
+
+
+-- Insertion de données dans la table full_matelas afin de "lier" des matelas à des marquess
+INSERT INTO full_matelas
+(matela_id, marque_id)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,1),
+(5,4),
+(6,5),
+(7,2),
+(8,4),
+(9,3),
+(10,5);
