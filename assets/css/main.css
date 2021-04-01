@@ -1,3 +1,59 @@
-footer{
-    background: green;
+body {
+  margin: 0;
 }
+
+.header_top {
+  display: flex;
+  justify-content: space-around;
+}
+.header_top .header-right ul {
+  display: flex;
+  justify-content: space-around;
+}
+.header_top .header-right ul a {
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.header_top .header-right ul li {
+  list-style-type: none;
+}
+
+.container {
+  background-color: blue;
+  color: white;
+}
+.container h1 {
+  text-align: center;
+}
+.container .body_cat .div_cat {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.container .body_cat .div_cat img {
+  width: 200px;
+  height: 200px;
+}
+.container .body_cat .div_cat .p_old {
+  text-decoration: line-through;
+}
+.container .body_cat .div_cat .p_promo {
+  color: red;
+}
+.container .body_cat .div_cat .buttonsuppr {
+  width: 150px;
+  height: 50px;
+  background: crimson;
+  border: black solid 2px;
+}
+
+footer .container {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+footer .container img {
+  height: 100px;
+}
+
+/*# sourceMappingURL=main.css.map */
